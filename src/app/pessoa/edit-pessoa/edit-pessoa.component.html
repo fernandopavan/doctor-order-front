@@ -1,0 +1,140 @@
+<div class="edit-page">
+  <mat-toolbar>
+    <span>Editando pessoa</span>
+  </mat-toolbar>
+
+  <div class="page-content">
+    <div class="row">
+
+      <div class="col-md-12">
+        <form class="edit-form" [formGroup]="editForm" novalidate (ngSubmit)="onSubmit()">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="Nome" class="form-control" formControlName="nome">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.nome">
+                  <mat-error
+                    *ngIf="editForm.get('nome').hasError(validation.type) && (editForm.get('nome').dirty || editForm.get('nome').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="Nome da mãe" class="form-control" formControlName="nomeMae">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.nomeMae">
+                  <mat-error
+                    *ngIf="editForm.get('nomeMae').hasError(validation.type) && (editForm.get('nomeMae').dirty || editForm.get('nomeMae').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <mat-select placeholder="Sexo" class="form-control" formControlName="sexo">
+                    <mat-option value="0">Masculinho</mat-option>
+                    <mat-option value="1">Feminino</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.sexo">
+                  <mat-error
+                    *ngIf="editForm.get('sexo').hasError(validation.type) && (editForm.get('sexo').dirty || editForm.get('sexo').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="Telefone" class="form-control" formControlName="telefone">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.telefone">
+                  <mat-error
+                    *ngIf="editForm.get('telefone').hasError(validation.type) && (editForm.get('telefone').dirty || editForm.get('telefone').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="E-mail" class="form-control" formControlName="email">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.email">
+                  <mat-error
+                    *ngIf="editForm.get('email').hasError(validation.type) && (editForm.get('email').dirty || editForm.get('email').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="CPF" class="form-control" formControlName="cpf">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.cpf">
+                  <mat-error
+                    *ngIf="editForm.get('cpf').hasError(validation.type) && (editForm.get('cpf').dirty || editForm.get('cpf').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="RG" class="form-control" formControlName="rg">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.rg">
+                  <mat-error
+                    *ngIf="editForm.get('rg').hasError(validation.type) && (editForm.get('rg').dirty || editForm.get('rg').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="Endereço" class="form-control" formControlName="endereco">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.endereco">
+                  <mat-error
+                    *ngIf="editForm.get('endereco').hasError(validation.type) && (editForm.get('endereco').dirty || editForm.get('endereco').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+
+          <div class="row submit-button-container">
+            <div class="col-md-4">
+              <button mat-raised-button class="submit-button" type="button" color="basic" (click)="cancel()">
+                <ion-icon name="home"></ion-icon> Cancelar
+              </button>
+            </div>
+            <div class="col-md-4">
+              <button mat-raised-button class="submit-button" color="primary" type="submit"
+                [disabled]="!editForm.valid">Salvar</button>
+            </div>
+            <div class="col-md-4">
+              <button mat-raised-button class="delete-button" color="warn" type="button"
+                (click)="delete()">Excluir</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

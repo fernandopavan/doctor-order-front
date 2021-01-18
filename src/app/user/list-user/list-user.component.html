@@ -1,0 +1,56 @@
+<div class="list-group users-list">
+
+  <div class="row">
+    <div class="col-md-9">
+      <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}"
+          placeholder="Busque pelo nome..." (keydown.enter)="searchByName()">
+        <div class="input-group-append" (click)="searchByName()">
+          <span class="input-group-text">
+            <ion-icon class="icon" name="search"></ion-icon>
+          </span>
+        </div>
+      </div>
+    </div>    
+    <div class="col-md-3">
+      <button mat-raised-button class="submit-button" type="button" color="primary" (click)="add()">
+        <ion-icon name="add"></ion-icon> Novo
+      </button>
+    </div>
+  </div>
+  <br>
+
+  <div *ngFor="let medico of medicos"
+    class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="row">
+      <div class="col col-md-2 image-col">
+        <img class="image" src="https://oficinaeditora.com.br/site/wp-content/uploads/2019/01/unnamed.jpg">
+      </div>
+      <div class="col col-md-8 text-col">
+        <h5 class="mb-1">{{medico.nome}}</h5>
+        <small>E-mail: {{medico.email}}</small>
+      </div>
+      <div class="col col-md-2 actions-col">
+        <button class="btn btn-outline-primary action" (click)="viewDetails(medico)" type="button">
+          <ion-icon class="icon" name="arrow-round-forward"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="medicos.length == 0" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="row">
+      <div class="col col-md-12 text-col">
+        <h5 class="mb-1">Ainda não possui médicos cadastrados</h5>
+      </div>
+    </div>
+  </div>
+
+  <nav aria-label="...">
+    <ul style="margin-top:10px;" class="pagination" *ngIf="medicos.length>0">
+      <li *ngFor="let page of ' '.repeat(pageMedico.totalPages).split(''), let i = index " (click)="onSelect(i)"
+        [class.active]="i === selectedPage" class="page-item"><button class="page-link" >{{i+1}}</button></li>
+    </ul>
+  </nav>
+
+</div>

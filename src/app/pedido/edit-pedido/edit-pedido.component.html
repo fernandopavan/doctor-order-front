@@ -1,0 +1,70 @@
+<div class="edit-page">
+  <mat-toolbar>
+    <span>Editando pedido</span>
+  </mat-toolbar>
+
+  <div class="page-content">
+    <div class="row">
+
+      <div class="col-md-12">
+        <form class="edit-form" [formGroup]="editForm" novalidate (ngSubmit)="onSubmit()">
+
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <mat-select placeholder="Pessoa" class="form-control" formControlName="pessoaFisica">
+                    <mat-option *ngFor="let pessoa of pessoas" [value]="pessoa" >
+                      {{pessoa.nome}} - CPF {{pessoa.cpf}} 
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <mat-form-field class="input-style" color="accent">
+                  <input formControlName="dataValidade" matInput [matDatepicker]="myPicker" placeholder="Data validade"
+                    [min]="minDate" class="form-control">
+                  <mat-datepicker-toggle matSuffix [for]="myPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #myPicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field class="input-style">
+                <textarea matInput placeholder="Exames" formControlName="exames"></textarea>
+              </mat-form-field>
+              <ng-container *ngFor="let validation of validationMessages.exames">
+                <mat-error
+                  *ngIf="editForm.get('exames').hasError(validation.type) && (editForm.get('exames').dirty || editForm.get('exames').touched)">
+                  {{validation.message}}</mat-error>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="row submit-button-container">
+            <div class="col-md-4">
+              <button mat-raised-button class="submit-button" type="button" color="basic" (click)="cancel()">
+                <ion-icon name="home"></ion-icon> Cancelar
+              </button>
+            </div>
+            <div class="col-md-4">
+              <button mat-raised-button class="submit-button" color="primary" type="submit"
+                [disabled]="!editForm.valid">Salvar</button>
+            </div>
+            <div class="col-md-4">
+              <button mat-raised-button class="delete-button" color="warn" type="button"
+                (click)="delete()">Excluir</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

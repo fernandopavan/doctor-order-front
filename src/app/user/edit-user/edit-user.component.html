@@ -1,0 +1,166 @@
+<div class="edit-page">
+  <mat-toolbar>
+    <span>Editando pessoa física</span>
+  </mat-toolbar>
+
+  <div class="page-content">
+    <div class="row">
+      <div class="col-md-3">
+        <img class="img-avatar" src="https://oficinaeditora.com.br/site/wp-content/uploads/2019/01/unnamed.jpg">
+      </div>
+
+      <div class="col-md-9">
+        <form class="edit-form" [formGroup]="editForm" novalidate (ngSubmit)="onSubmit()">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="Nome completo" class="form-control" formControlName="nome">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.nome">
+                  <mat-error
+                    *ngIf="editForm.get('nome').hasError(validation.type) && (editForm.get('nome').dirty || editForm.get('nome').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="row">
+            
+            <div class="col-md-4">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="Nº conselho" class="form-control" formControlName="numeroConselho">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.numeroConselho">
+                  <mat-error
+                    *ngIf="editForm.get('numeroConselho').hasError(validation.type) && (editForm.get('numeroConselho').dirty || editForm.get('numeroConselho').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>            
+            <div class="col-md-4">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <mat-select placeholder="Estado do conselho" class="form-control" formControlName="estadoConselho">
+                    <mat-option value="AC">AC</mat-option>
+                    <mat-option value="AL">AL</mat-option>
+                    <mat-option value="AP">AP</mat-option>
+                    <mat-option value="AM">AM</mat-option>
+                    <mat-option value="BA">BA</mat-option>
+                    <mat-option value="CE">CE</mat-option>
+                    <mat-option value="DF">DF</mat-option>
+                    <mat-option value="ES">ES</mat-option>
+                    <mat-option value="GO">GO</mat-option>
+                    <mat-option value="MA">MA</mat-option>
+                    <mat-option value="MT">MT</mat-option>
+                    <mat-option value="MS">MS</mat-option>
+                    <mat-option value="MG">MG</mat-option>
+                    <mat-option value="PA">PA</mat-option>
+                    <mat-option value="PB">PB</mat-option>
+                    <mat-option value="PR">PR</mat-option>
+                    <mat-option value="PE">PE</mat-option>
+                    <mat-option value="PI">PI</mat-option>
+                    <mat-option value="RJ">RJ</mat-option>
+                    <mat-option value="RN">RN</mat-option>
+                    <mat-option value="RS">RS</mat-option>
+                    <mat-option value="RO">RO</mat-option>
+                    <mat-option value="RR">RR</mat-option>
+                    <mat-option value="SC">SC</mat-option>
+                    <mat-option value="SP">SP</mat-option>
+                    <mat-option value="SE">SE</mat-option>
+                    <mat-option value="TO">TO</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.estadoConselho">
+                  <mat-error
+                    *ngIf="editForm.get('estadoConselho').hasError(validation.type) && (editForm.get('estadoConselho').dirty || editForm.get('estadoConselho').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>            
+            <div class="col-md-4">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <mat-select placeholder="Tipo do conselho" class="form-control" formControlName="tipoConselho">
+                    <mat-option value="CFM">CFM - Conselho Federal de Medicina</mat-option>
+                    <mat-option value="CFMV">CFMV - Conselho Federal de Medicina Veterinária</mat-option>
+                    <mat-option value="CFO">CFO - Conselho Federal de Odontologia</mat-option>
+                    <mat-option value="COFEN">COFEN - Conselho Federal de Enfermagem</mat-option>
+                    <mat-option value="CFBM">CFBM - Conselho Federal de Biomedicina</mat-option>
+                    <mat-option value="CFF">CFF - Conselho Federal de Farmácia</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.tipoConselho">
+                  <mat-error
+                    *ngIf="editForm.get('tipoConselho').hasError(validation.type) && (editForm.get('tipoConselho').dirty || editForm.get('tipoConselho').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput placeholder="E-mail" type="email" class="form-control" formControlName="email">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.email">
+                  <mat-error
+                    *ngIf="editForm.get('email').hasError(validation.type) && (editForm.get('email').dirty || editForm.get('email').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <input matInput type="password" placeholder="Senha" class="form-control" formControlName="senha">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <mat-form-field class="input-style">
+                  <mat-select placeholder="Perfis" multiple class="form-control" formControlName="perfis">
+                    <mat-option value="0">Administrador</mat-option>
+                    <mat-option value="1">Pessoal</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validationMessages.perfis">
+                  <mat-error
+                    *ngIf="editForm.get('perfis').hasError(validation.type) && (editForm.get('perfis').dirty || editForm.get('perfis').touched)">
+                    {{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+
+          <div class="row submit-button-container">
+            <div class="col-md-4">
+              <button mat-raised-button class="submit-button" type="button" color="basic" (click)="cancel()">
+                <ion-icon name="home"></ion-icon> Cancelar
+              </button>
+            </div>
+            <div class="col-md-4">
+              <button mat-raised-button class="submit-button" color="primary" type="submit"
+                [disabled]="!editForm.valid">Salvar</button>
+            </div>
+            <div class="col-md-4">
+              <button mat-raised-button class="delete-button" color="warn" type="button"
+                (click)="delete()">Excluir</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
