@@ -10,6 +10,14 @@
         <form class="create-form" [formGroup]="addForm" novalidate (ngSubmit)="onSubmit()">
 
           <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <h3>Médico(a) logado: <span style="color: cadetblue">{{userLogado.email}}</span></h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
             <div class="col-md-8">
               <div class="form-group">
                 <mat-form-field class="input-style">

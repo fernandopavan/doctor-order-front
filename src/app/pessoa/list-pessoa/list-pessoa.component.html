@@ -1,10 +1,18 @@
 <div class="list-group users-list">
 
   <div class="row">
+    <div class="col-md-12">
+      <h3>Pessoas</h3>
+    </div>
+  </div>
+
+  <br>
+  
+  <div class="row">
     <div class="col-md-9">
       <div class="input-group">
         <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}"
-          placeholder="Busque pela descrição..." (keydown.enter)="searchBy()">
+          placeholder="Busque pela nome da pessoa..." (keydown.enter)="searchBy()">
 
         <div class="input-group-append" (click)="searchBy()">
           <span class="input-group-text">
@@ -25,7 +33,7 @@
     <div class="row">
       <div class="col col-md-9 text-col">
         <h5 class="mb-1">{{pessoa.nome}} - CPF {{pessoa.cpf}}</h5>
-        <small>{{pessoa.nomeMae}} - {{pessoa.dataNascimento}}</small>
+        <small>Mãe: {{pessoa.nomeMae}} - {{pessoa.dataNascimento}}</small>
       </div>
 
       <div class="col col-md-3 actions-col">

@@ -119,4 +119,8 @@ export class EditPedidoComponent implements OnInit {
   cancel() {
     this.router.navigate(['/list-pedidos']);
   }
+  
+  compareCategoryObjects(object1: any, object2: any) {
+    return object1 && object2 && object1.id == object2.id;
+  }
 }

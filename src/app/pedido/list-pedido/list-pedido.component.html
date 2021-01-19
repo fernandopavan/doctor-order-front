@@ -1,4 +1,12 @@
 <div class="list-group users-list">
+  
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Pedidos</h3>
+    </div>
+  </div>
+
+  <br>
 
   <div class="row">
     <div class="col-md-9">
@@ -24,7 +32,7 @@
     <div class="row">
       <div class="col col-md-9 text-col">
         <h5 class="mb-1">{{pedido.pessoaFisica.nome}}</h5>
-        <small>Validade: {{pedido.dataValidade}} - Exames: {{pedido.exames}} </small>
+        <small>Médico(a): {{pedido.medico.nome}} - Validade: {{pedido.dataValidade}} - Exames: {{pedido.exames}} </small>
       </div>
       <div class="col col-md-3 actions-col">
         <button class="btn btn-outline-primary action" (click)="viewDetails(pedido)" type="button">

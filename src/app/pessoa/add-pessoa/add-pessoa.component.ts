@@ -26,6 +26,9 @@ export class AddPessoaFisicaComponent implements OnInit {
     private pessoaFisicaService: PessoaFisicaService) { }
 
   addForm: FormGroup;
+  
+  minDate = new Date(1900, 1, 1);
+  date: any;
 
   validationMessages = {
     nome: [
@@ -62,6 +65,7 @@ export class AddPessoaFisicaComponent implements OnInit {
   }
 
   onSubmit() {
+    this.addForm.value.dataNascimento = new Date(this.addForm.value.dataNascimento).toISOString().slice(0, 10);
     this.pessoaFisicaService.create(this.addForm.value)
       .subscribe(data => {
         this.resetFields();
@@ -79,6 +83,7 @@ export class AddPessoaFisicaComponent implements OnInit {
       nome: ['', Validators.required],
       nomeMae: ['', Validators.required],
       sexo: ['', Validators.required],
+      dataNascimento: [''],
       telefone: [''],
       email: ['', Validators.required],
       cpf: ['', Validators.required],
@@ -92,6 +97,7 @@ export class AddPessoaFisicaComponent implements OnInit {
       nome: new FormControl('', Validators.required),
       nomeMae: new FormControl('', Validators.required),
       sexo: new FormControl('', Validators.required),
+      dataNascimento: new FormControl(''),
       telefone: new FormControl(''),
       email: new FormControl('', Validators.required),
       cpf: new FormControl('', Validators.required),

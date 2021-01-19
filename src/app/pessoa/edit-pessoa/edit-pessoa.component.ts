@@ -24,6 +24,9 @@ export class EditPessoaFisicaComponent implements OnInit {
   pessoa: PessoaFisica;
   editForm: FormGroup;
 
+  minDate = new Date(1900, 1, 1);
+  date: any;
+
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -80,6 +83,7 @@ export class EditPessoaFisicaComponent implements OnInit {
       id: [this.pessoa.id],
       nome: [this.pessoa.nome, Validators.required],
       nomeMae: [this.pessoa.nomeMae, Validators.required],
+      dataNascimento: [this.pessoa.dataNascimento],
       sexo: [sexo, Validators.required],
       telefone: [this.pessoa.telefone],
       email: [this.pessoa.email, Validators.required],
@@ -90,6 +94,7 @@ export class EditPessoaFisicaComponent implements OnInit {
   }
 
   onSubmit() {
+    this.editForm.value.dataNascimento = new Date(this.editForm.value.dataNascimento).toISOString().slice(0, 10);
     this.pessoaService.update(this.editForm.value)
       .pipe(first())
       .subscribe(response => {

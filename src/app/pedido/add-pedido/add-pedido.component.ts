@@ -7,6 +7,7 @@ import { PessoaFisicaService } from '../../service/pessoa-fisica.service';
 import Swal from 'sweetalert2';
 import { CustomDateAdapter } from 'src/app/custom.date.adapter';
 import { Platform } from '@angular/cdk/platform';
+import { StorageService } from '../../service/storage.service';
 
 import { PessoaFisica } from '../../model/pessoaFisica';
 
@@ -27,9 +28,12 @@ export class AddPedidoComponent implements OnInit {
     private router: Router,
     public dialog: MatDialog,
     public pessoaService: PessoaFisicaService,
-    private pedidoService: PedidoService) { }
+    private pedidoService: PedidoService,
+    public storage: StorageService) { }
 
   pessoas: PessoaFisica[] = [];
+  
+  userLogado = this.storage.getLocalUser();
 
   minDate = new Date(1900, 1, 1);
   date: any;

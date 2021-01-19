@@ -10,10 +10,18 @@
         <form class="edit-form" [formGroup]="editForm" novalidate (ngSubmit)="onSubmit()">
 
           <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <h3>Médico(a) responsável: <span style="color: cadetblue">{{pedido.medico.nome}}</span></h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
             <div class="col-md-8">
               <div class="form-group">
                 <mat-form-field class="input-style">
-                  <mat-select placeholder="Pessoa" class="form-control" formControlName="pessoaFisica">
+                  <mat-select placeholder="Pessoa" class="form-control" [compareWith]="compareCategoryObjects" formControlName="pessoaFisica">
                     <mat-option *ngFor="let pessoa of pessoas" [value]="pessoa" >
                       {{pessoa.nome}} - CPF {{pessoa.cpf}} 
                     </mat-option>
