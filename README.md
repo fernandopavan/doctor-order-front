@@ -1,6 +1,6 @@
 # Projeto de pedidos
 
-<b> Demonstração: </b> <a>https://doctor-order-app.herokuapp.com/</a>
+<b> Demonstração: </b> <a>https://doctor-order-app.herokuapp.com/</a> - Obs.: esperar subir a API;
 <br/>
 <b> Login: </b> `email: maria@gmail.com` | `senha: 123`
 
@@ -32,7 +32,7 @@
 <b> Para executar o projeto completo: </b>
 - Clone: <a>https://github.com/fernandopavan/doctor-order-compose</a> 
 - Após clonar este repositório em computador, execute esse comando no terminal `docker-compose up` dentro do diretório do projeto.
-- <b>Obs.:</b> é necessário ter o docker (19.03.8) instalado no seu computador.
+- <b>Obs.:</b> é necessário ter o docker (~19.03.8) instalado no seu computador.
 - No navegador, digite a seguinte URL: <a>http://localhost:9000/</a>
 
 <br/>
@@ -40,7 +40,7 @@
 <b> Para rodar somente o front-end: </b>
 - Clone este repositório: <a>https://github.com/fernandopavan/doctor-order-front</a> 
 - Execute os seguintes comandos na raiz do projeto: `npm install` `npm start`
-- <b>Obs.:</b> é necessário ter o `node: v13.12.0` e o `npm: 6.14.4` instalado no seu computador.
+- <b>Obs.:</b> é necessário ter o `node: ~v13.12.0` e o `npm: ~6.14.4` instalado no seu computador.
 
 <br/>
 
