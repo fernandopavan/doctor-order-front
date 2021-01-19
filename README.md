@@ -1,6 +1,6 @@
 # Projeto de pedidos
 
-<b> Demonstração: </b> <a>https://doctor-order-app.herokuapp.com/</a> - Obs.: esperar subir a API;
+<b> Demonstração: </b> <a>https://doctor-order-app.herokuapp.com/</a> - <b>Obs.:</b> esperar subir a aplicação;
 <br/>
 <b> Login: </b> `email: maria@gmail.com` | `senha: 123`
 
